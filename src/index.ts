@@ -18,7 +18,17 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || "";
 
 // ===== Middleware =====
-app.use(cors()); // Enable CORS
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // for local frontend dev
+      "https://your-frontend.vercel.app", // replace with your Vercel/Vite deploy
+      "https://ai-content-backend-production.up.railway.app", // Swagger
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(helmet()); // Secure HTTP headers
 app.use(morgan("dev")); // Log requests to console
 app.use(express.json()); // Parse incoming JSON
