@@ -7,7 +7,7 @@ export const swaggerDocumentation = {
   },
   servers: [
     {
-      url: "http://localhost:5000/api", // URL for API requests
+      url: "https://ai-content-backend-production.up.railway.app",
     },
   ],
   paths: {
