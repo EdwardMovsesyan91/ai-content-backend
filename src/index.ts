@@ -21,9 +21,9 @@ const MONGO_URI = process.env.MONGO_URI || "";
 app.use(
   cors({
     origin: [
-      "http://localhost:5173", // for local frontend dev
-      "https://your-frontend.vercel.app", // replace with your Vercel/Vite deploy
-      "https://ai-content-backend-production.up.railway.app", // Swagger
+      "http://localhost:5173",
+      "https://your-frontend.vercel.app",
+      "https://ai-content-backend-production.up.railway.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
