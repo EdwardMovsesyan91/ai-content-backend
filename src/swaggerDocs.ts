@@ -186,6 +186,43 @@ export const swaggerDocumentation = {
         },
       },
     },
+    "/posts/public": {
+      get: {
+        description: "Get all public, non-draft posts",
+        responses: {
+          200: {
+            description: "List of public posts",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    posts: {
+                      type: "array",
+                      items: {
+                        type: "object",
+                        properties: {
+                          title: { type: "string" },
+                          content: { type: "string" },
+                          isPublic: { type: "boolean" },
+                          isDraft: { type: "boolean" },
+                          createdAt: { type: "string", format: "date-time" },
+                          _id: { type: "string" },
+                          userId: { type: "string" },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          500: {
+            description: "Server error",
+          },
+        },
+      },
+    },
     "/posts/{id}": {
       get: {
         description: "Get a public post by ID",

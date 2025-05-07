@@ -97,3 +97,17 @@ export const deletePost = async (req: Request, res: Response) => {
 
   res.status(200).json({ message: "Post deleted successfully" });
 };
+
+export const getAllPublicPosts = async (req: Request, res: Response) => {
+  try {
+    const posts = await Post.find({
+      isPublic: true,
+      isDraft: false,
+    }).sort({ createdAt: -1 });
+
+    res.status(200).json({ posts });
+  } catch (err) {
+    console.error("Failed to fetch public posts:", err);
+    res.status(500).json({ message: "Failed to fetch public posts" });
+  }
+};
