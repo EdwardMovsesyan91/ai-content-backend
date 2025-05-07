@@ -21,6 +21,7 @@ const MONGO_URI = process.env.MONGO_URI || "";
 app.use(
   cors({
     origin: [
+      "https://my-ai-content.vercel.app",
       "https://ai-content-frontend-zeta.vercel.app",
       "http://localhost:5173",
       "https://your-frontend.vercel.app",
